@@ -7,19 +7,45 @@ import { Container, Row, Col } from "reactstrap";
 export default class App extends Component {
 
   state = {
-  currentCategory: ""
+  currentCategory: "",
+    products:[]
   }
+
+  componentDidMount() { // componentler yerleesti simdi categorileri yerlestir demek
+    this.getProducts()
+  }
+
   changeCategory = category => {
     this.setState({
       currentCategory: category.categoryName
     });
+
+    this.getProducts(category.id);
   };
 
+
+  getProducts = categoryId => {
+    let url = "http://localhost:3000/products"
+
+    if (categoryId){
+      url += "?categoryId=" + categoryId
+    }
+    fetch(url)
+        .then(response => response.json())
+        .then(data => this.setState({products: data}))
+  }
 
   categoryInfo = {
     title: "Category List"
   };
   productInfo = { title: "Product List" };
+
+
+
+
+
+
+
 
   render() {
     return (
@@ -36,7 +62,7 @@ export default class App extends Component {
               />
             </Col>
             <Col xs="9">
-              <ProductList
+              <ProductList  products={this.state.products}
                   currentCategory={this.state.currentCategory} info={this.productInfo}
               />
             </Col>

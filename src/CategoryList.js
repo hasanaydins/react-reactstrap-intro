@@ -3,9 +3,7 @@ import { ListGroup, ListGroupItem } from "reactstrap";
 
 export  default  class CategoryList extends Component {
   state = {
-    categories: [
-
-    ]
+    categories: []
   };
 
   componentDidMount() { // componentler yerleesti simdi categorileri yerlestir demek
@@ -13,7 +11,6 @@ export  default  class CategoryList extends Component {
   }
 
     getCategories = () => {
-
       fetch("http://localhost:3000/categories")
           .then(response => response.json())
           .then(data => this.setState({categories: data}))
@@ -34,8 +31,6 @@ export  default  class CategoryList extends Component {
             </ListGroupItem>
           ))}
         </ListGroup>
-
-        <h4>{this.props.currentCategory}</h4>
       </div>
     );
   }
