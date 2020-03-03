@@ -8,17 +8,26 @@ class CategoryList extends Component {
        }
        */
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      categories: [
+        { categoryId: 1, categoryName: "Beverages" },
+        { categoryId: 2, categoryName: "Condiments" },
+        { categoryId: 3, categoryName: "Beverages" }
+      ]
+    };
+  }
+
   render() {
     return (
       <div>
         <h4>{this.props.info.title}</h4>
-        <p>{this.props.info.baskaBisey}</p>
+        <h4>{this.state.counter}</h4>
         <ListGroup>
-          <ListGroupItem>Cras justo odio</ListGroupItem>
-          <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-          <ListGroupItem>Morbi leo risus</ListGroupItem>
-          <ListGroupItem>Porta ac consectetur ac</ListGroupItem>
-          <ListGroupItem>Vestibulum at eros</ListGroupItem>
+          {this.state.categories.map(category => (
+            <ListGroupItem key={category.categoryId}>{category.categoryName}</ListGroupItem>
+          ))}
         </ListGroup>
       </div>
     );

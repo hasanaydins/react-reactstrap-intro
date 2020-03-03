@@ -7,8 +7,7 @@ function App() {
   // let productList = "Product List"; // 2.yol props icin
 
   let categoryInfo = {
-    title: "Category List",
-    baskaBisey: "baska  bir ozellik"
+    title: "Category List"
   };
   let productInfo = { title: "Product List" };
 
