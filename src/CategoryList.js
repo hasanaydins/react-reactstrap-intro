@@ -2,23 +2,20 @@ import React, { Component } from "react";
 import { ListGroup, ListGroupItem } from "reactstrap";
 
 class CategoryList extends Component {
-  /*   constructor(props) { zorunlu degil
-           super(props);
-           state:{}
-       }
-       */
+  state = {
+    categories: [
+      { categoryId: 1, categoryName: "Beverages" },
+      { categoryId: 2, categoryName: "Condiments" },
+      { categoryId: 3, categoryName: "Beverages" }
+    ],
+    currentCategory: ""
+  };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      categories: [
-        { categoryId: 1, categoryName: "Beverages" },
-        { categoryId: 2, categoryName: "Condiments" },
-        { categoryId: 3, categoryName: "Beverages" }
-      ]
-    };
-  }
-
+  changeCategory = category => {
+    this.setState({
+      currentCategory: category.categoryName
+    });
+  };
   render() {
     return (
       <div>
@@ -26,9 +23,16 @@ class CategoryList extends Component {
         <h4>{this.state.counter}</h4>
         <ListGroup>
           {this.state.categories.map(category => (
-            <ListGroupItem key={category.categoryId}>{category.categoryName}</ListGroupItem>
+            <ListGroupItem
+              onClick={() => this.changeCategory(category)}
+              key={category.categoryId}
+            >
+              {category.categoryName}
+            </ListGroupItem>
           ))}
         </ListGroup>
+
+        <h4>{this.state.currentCategory}</h4>
       </div>
     );
   }
