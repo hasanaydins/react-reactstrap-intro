@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import {Button, ListGroup, ListGroupItem, Table} from "reactstrap";
+import { Button, ListGroup, ListGroupItem, Table } from "reactstrap";
+import { FiShoppingCart } from 'react-icons/fi';
+
 
 class ProductList extends Component {
-
-
-
   render() {
     return (
       <div>
@@ -32,7 +31,14 @@ class ProductList extends Component {
                   <td>$ {product.unitPrice}</td>
                   <td>$ {product.quantityPerUnit}</td>
                   <td>{product.unitsInStock}</td>
-                  <td><Button onClick={()=>this.props.addToCart(product)} color="success">Add</Button></td>
+                  <td>
+                    <Button
+                      onClick={() => this.props.addToCart(product)}
+                      color="success"
+                    >
+                      <FiShoppingCart />  Add
+                    </Button>
+                  </td>
                 </tr>
               ))}
             </tbody>

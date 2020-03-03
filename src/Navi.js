@@ -12,44 +12,31 @@ import {
   DropdownMenu,
   DropdownItem,
   NavbarText
-} from 'reactstrap';
-
+} from "reactstrap";
+import CartSummary from "./CartSummary";
 
 export default class Navi extends Component {
   render() {
     return (
-        <div>
-          <Navbar color="light" light expand="md">
-            <NavbarBrand href="/">Shopping</NavbarBrand>
-            <NavbarToggler  />
-            <Collapse  navbar>
-              <Nav className="mr-auto" navbar>
-                <NavItem>
-                  <NavLink href="/components/">Components</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
-                </NavItem>
-                <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle nav caret>
-                    Options - {this.props.cart.length}
-                  </DropdownToggle>
-                  <DropdownMenu right>
-                      <DropdownItem>
-                        Option 1
-                      </DropdownItem>
-
-                    <DropdownItem divider />
-                    <DropdownItem>
-                      Reset
-                    </DropdownItem>
-                  </DropdownMenu>
-                </UncontrolledDropdown>
-              </Nav>
-              <NavbarText>Simple Text</NavbarText>
-            </Collapse>
-          </Navbar>
-        </div>
+      <div>
+        <Navbar color="light" light expand="md">
+          <NavbarBrand href="/">Shopping</NavbarBrand>
+          <NavbarToggler />
+          <Collapse navbar>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                <NavLink href="/components/">Components</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="https://github.com/reactstrap/reactstrap">
+                  GitHub
+                </NavLink>
+              </NavItem>
+              <CartSummary removeFromCart={this.props.removeFromCart} cart={this.props.cart} />
+            </Nav>
+          </Collapse>
+        </Navbar>
+      </div>
     );
   }
 }
