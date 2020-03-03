@@ -10,7 +10,9 @@ class ProductList extends Component {
   render() {
     return (
       <div>
-        <h3>{this.props.title}</h3>
+        <h3>
+          <h4>{this.props.info.title}</h4>
+        </h3>
       </div>
     );
   }

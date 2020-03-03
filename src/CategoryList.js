@@ -11,7 +11,8 @@ class CategoryList extends Component {
   render() {
     return (
       <div>
-        <h4>{this.props.title}</h4>
+        <h4>{this.props.info.title}</h4>
+        <p>{this.props.info.baskaBisey}</p>
         <ListGroup>
           <ListGroupItem>Cras justo odio</ListGroupItem>
           <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
