@@ -1,13 +1,13 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 
 class Navi extends Component {
-    render() {
-        return (
-            <div>
-                <p>Navigation</p>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <p>Navigation</p>
+      </div>
+    );
+  }
 }
 
 export default Navi;
