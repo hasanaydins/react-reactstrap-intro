@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Link} from "react-router-dom"
 import {
   Collapse,
   Navbar,
@@ -14,6 +15,7 @@ import {
   NavbarText
 } from "reactstrap";
 import CartSummary from "./CartSummary";
+import FormDemo1 from "./FormDemo1";
 
 export default class Navi extends Component {
   render() {
@@ -25,7 +27,10 @@ export default class Navi extends Component {
           <Collapse navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/components/">Components</NavLink>
+                <NavLink>
+                  <Link to="/form1" >Form1</Link>
+                </NavLink>
+
               </NavItem>
               <NavItem>
                 <NavLink href="https://github.com/reactstrap/reactstrap">
