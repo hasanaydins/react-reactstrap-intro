@@ -1,7 +1,10 @@
 import React, { Component } from "react";
-import { ListGroup, ListGroupItem, Table } from "reactstrap";
+import {Button, ListGroup, ListGroupItem, Table} from "reactstrap";
 
 class ProductList extends Component {
+
+
+
   render() {
     return (
       <div>
@@ -18,6 +21,7 @@ class ProductList extends Component {
                 <th>Price</th>
                 <th>Quantity per Unit</th>
                 <th>Stock</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -28,6 +32,7 @@ class ProductList extends Component {
                   <td>$ {product.unitPrice}</td>
                   <td>$ {product.quantityPerUnit}</td>
                   <td>{product.unitsInStock}</td>
+                  <td><Button onClick={()=>this.props.addToCart(product)} color="success">Add</Button></td>
                 </tr>
               ))}
             </tbody>
